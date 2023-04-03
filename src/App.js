@@ -1,7 +1,7 @@
 
 import './App.css';
 function App() {  
-  const todoListItems = [
+  let todoListItems = [
     'Laundry',
     'Dishes',
     'Sweep',
@@ -13,12 +13,19 @@ function App() {
     <div>
       <ul>
         {
-          todoListItems.map((item) => {
-            return <li>{item}</li>
+          todoListItems.map((item, index) => {
+            return <li key={index}>{item}</li>
           }) 
         }
       </ul>
-
+        <input onMouseOver={(event) => {
+            console.log('mouse over')
+          }}
+          onChange={
+          (event) => {
+            console.log(event)
+          }}  
+        />
     </div>
   );
     
