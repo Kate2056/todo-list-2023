@@ -4,8 +4,12 @@ function App() {
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
   const [listItems, setListItems] = React.useState([]);
 
-  console.log(userEnteredTodo);
-
+  const saveItemAndClearInput = () => {
+    setListItems([
+      ...listItems,
+      userEnteredTodo
+    ])
+  }
   
   return (
     <div>
@@ -21,16 +25,19 @@ function App() {
           (event) => {
             setUserEnteredTodo(event.target.value)
           }}  
+          onKeyDown={(event)=>{
+            if(event.code=== "Enter"){
+              saveItemAndClearInput();
+            setUserEnteredTodo("");
+          }
+          }}
           value={userEnteredTodo}
         />
         <button 
           onClick={() => {
             
-            console.log('here')
-            setListItems([
-              ...listItems,
-              userEnteredTodo
-            ])
+            saveItemAndClearInput();
+            
           }}
         >Add</button>
     </div>
