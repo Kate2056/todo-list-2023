@@ -1,0 +1,12 @@
+li{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    list-style-type:circle;
+    margin:8px 0;
+}
+div{
+    display:list-item;
+    list-style-type:circle;
+    margin-right:10px;
+}

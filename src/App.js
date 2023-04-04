@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import ListItem from './ListItem';
+
+
 function App() {  
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
   const [listItems, setListItems] = React.useState([]);
@@ -16,7 +19,9 @@ function App() {
       <ul>
         {
           listItems.map((item, index) => {
-            return <li key={index}>{item}</li>
+            return (<ListItem 
+              item={item}
+              />)
           }) 
         }
       </ul>
