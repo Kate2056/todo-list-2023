@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 function App() {  
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
   const [listItems, setListItems] = React.useState([]);
-
+  
   const saveItemAndClearInput = () => {
     setListItems([
       ...listItems,
@@ -19,8 +19,12 @@ function App() {
       <ul>
         {
           listItems.map((item, index) => {
-            return (<ListItem 
+            return (
+            <ListItem 
               item={item}
+              index={index}
+              listItems={listItems}
+              setListItems={setListItems}
               />)
           }) 
         }
@@ -31,7 +35,7 @@ function App() {
             setUserEnteredTodo(event.target.value)
           }}  
           onKeyDown={(event)=>{
-            if(event.code=== "Enter"){
+            if(event.code === "Enter"){
               saveItemAndClearInput();
             setUserEnteredTodo("");
           }
