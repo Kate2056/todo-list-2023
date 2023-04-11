@@ -30,6 +30,8 @@ function App() {
         }
       </ul>
       <Input
+        id={'input-id'}
+        name={'user-entered-todo'}
         onChange={
           (event) => {
             setUserEnteredTodo(event.target.value)
