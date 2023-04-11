@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ListItem from './ListItem';
-
+import Input from './Input';
 
 function App() {  
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
@@ -29,25 +29,27 @@ function App() {
           }) 
         }
       </ul>
-        <input 
-          onChange={
+      <Input
+        onChange={
           (event) => {
             setUserEnteredTodo(event.target.value)
           }}  
           onKeyDown={(event)=>{
             if(event.code === "Enter"){
               saveItemAndClearInput();
-            setUserEnteredTodo("");
-          }
+              setUserEnteredTodo("");
+            }
           }}
           value={userEnteredTodo}
         />
+
         <button 
           onClick={() => {
             
             saveItemAndClearInput();
             
           }}
+          
         >Add</button>
     </div>
   );
